@@ -56,7 +56,7 @@ public class GET {
 				     
 				        	String str=null;
 				        	//CoapResponse response = client.get();
-				        	CoapClient client = new CoapClient(new URI("coap://[fe80::212:4b00:89ab:cdef]:5683/.well-known/core"));
+				        	CoapClient client = new CoapClient(new URI("coap://192.168.0.102:5683/.well-known/core"));
 				        	CoapResponse response=client.get();
 				        	
 				        	

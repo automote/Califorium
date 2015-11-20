@@ -59,7 +59,7 @@ public class GETClient {
 				     
 				        	String str=null;
 				        	//CoapResponse response = client.get();
-				        	CoapClient client = new CoapClient(new URI("coap://coap.me:5683/.well-known/core"));
+				        	CoapClient client = new CoapClient(new URI("coap://192.168.0.103:5683/.well-known/core"));
 				        	CoapResponse response=client.get();
 				        	
 				        	
@@ -106,7 +106,8 @@ public class GETClient {
 				        		{
 				        			String resource=resources_list[j];
 				        			System.out.println(resource);
-				        			CoapClient clientstatus = new CoapClient(new URI("coap://coap.me:5683"+resource));
+				        			CoapClient clientstatus = new CoapClient(new URI("coap://192.168.0.103:5683"+resource));
+				        			System.out.println("coap://coap.me:5683"+resource);
 						        	CoapResponse responsemotes=clientstatus.get();
 						        	if(responsemotes!=null)
 						        	{
@@ -202,7 +203,7 @@ public class GETClient {
 					    try {
 					    	
 					      Class.forName("org.sqlite.JDBC");
-					      c = DriverManager.getConnection("jdbc:sqlite:/home/pi/IOT.db");
+					      c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
 					      System.setProperty("java.io.pi", "/home/pi/"); 
 					      System.out.println("Opened database successfully");
 
@@ -227,7 +228,7 @@ public class GETClient {
 			        	String Address=response.getResponseText();
 			        	
 			        	Class.forName("org.sqlite.JDBC");
-					      c = DriverManager.getConnection("jdbc:sqlite:/home/pi/IOT.db");
+					      c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
 					      c.setAutoCommit(false);
 					      System.out.println("Opened database successfully");
 			        	String regex="\\<\\(.*?)\\>";
@@ -297,7 +298,7 @@ public class GETClient {
 					
 					try {
 					      Class.forName("org.sqlite.JDBC");
-					      c = DriverManager.getConnection("jdbc:sqlite:/home/pi/IOT.db");
+					      c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
 					      c.setAutoCommit(false);
 					      System.out.println("Opened database successfully");
 

@@ -12,7 +12,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -24,5 +24,6 @@
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/cf-helloworld-client"/>
 	<classpathentry kind="lib" path="F:/Home Automation/SQLite/sqlite-jdbc-3.8.11.2.jar"/>
+	<classpathentry kind="lib" path="F:/HttpsServer/http-20070405.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
