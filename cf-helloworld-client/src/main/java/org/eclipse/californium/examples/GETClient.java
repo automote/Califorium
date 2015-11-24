@@ -202,14 +202,14 @@ public class GETClient {
 						
 					    try {
 					    	
-					      Class.forName("org.sqlite.JDBC");
-					      c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
-					      System.setProperty("java.io.pi", "/home/pi/"); 
+					    	Class.forName("com.mysql.jdbc.Driver");
+					    	c = DriverManager.getConnection("jdbc:mysql://localhost:3306/temp","root","raspberry");
+					      //System.setProperty("java.io.pi", "F:\\Home Automation\\"); 
 					      System.out.println("Opened database successfully");
 
 					      stmt = c.createStatement();
 					      String sql = "CREATE TABLE STATUS " +
-					                   "(tdate DATE, ttime TIME,SERVICES CHAR(4500), " + "STATUS CHAR(4500) )"; 
+					                   "(tdate DATE, ttime TIME,SERVICES CHAR(250), " + "STATUS CHAR(250) )"; 
 					      stmt.executeUpdate(sql);
 					      stmt.close();
 					      c.close();
@@ -227,9 +227,12 @@ public class GETClient {
 			        	CoapResponse response=client1.get();
 			        	String Address=response.getResponseText();
 			        	
-			        	Class.forName("org.sqlite.JDBC");
-					      c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
-					      c.setAutoCommit(false);
+			        	//Class.forName("org.sqlite.JDBC");
+					     // c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
+
+				    	Class.forName("com.mysql.jdbc.Driver");
+				    	c = DriverManager.getConnection("jdbc:mysql://localhost:3306/temp","root","raspberry");  
+			        	c.setAutoCommit(false);
 					      System.out.println("Opened database successfully");
 			        	String regex="\\<\\(.*?)\\>";
 		        		Pattern pattern = Pattern.compile("\\<.*?\\>");
@@ -269,7 +272,8 @@ public class GETClient {
 				        	
 				        	stmt = c.createStatement();
 				        	 sql = "INSERT INTO STATUS " +
-					                   "VALUES (date('now'), time('now','+05:30'),'"+resource+"','"+payloadmotesstatues+"');"; 
+					                   "VALUES (now(), now()+INTERVAL 05 HOUR + INTERVAL 30 MINUTE,'"+resource+"','"+payloadmotesstatues+"');"; 
+				        	
 					      stmt.executeUpdate(sql); 
 					      
 						     
@@ -278,14 +282,7 @@ public class GETClient {
 		        		stmt.close();
 					      c.commit();
 					      c.close();
-			        	
-			        	
-			        	
-			        	
-						
-					
-
-				     
+		
 				    } catch ( Exception e ) {
 				      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
 				      System.exit(0);
@@ -297,9 +294,12 @@ public class GETClient {
 				case "6":
 					
 					try {
-					      Class.forName("org.sqlite.JDBC");
-					      c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
-					      c.setAutoCommit(false);
+					      //Class.forName("org.sqlite.JDBC");
+					      //c = DriverManager.getConnection("jdbc:sqlite:F:\\Home Automation\\SQLiteIOT.db");
+
+				    	Class.forName("com.mysql.jdbc.Driver");
+				    	c = DriverManager.getConnection("jdbc:mysql://localhost:3306/temp","root","raspberry");  
+						c.setAutoCommit(false);
 					      System.out.println("Opened database successfully");
 
 					      stmt = c.createStatement();

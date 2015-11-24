@@ -23,5 +23,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="F:/Home Automation/SQLite/sqlite-jdbc-3.8.11.2.jar"/>
+	<classpathentry kind="lib" path="F:/Home Automation/MySQL/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="F:/Home Automation/MySQL/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="F:/Home Automation/MySQL/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
