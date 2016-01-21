@@ -35,20 +35,20 @@ public class LightON
 		 InetAddress serverinet = Inet6Address.getByName(server);
 	     InetAddress border_router_inet = Inet6Address.getByName(border_router);
 	     System.out.println("Sending Ping Request to " + serverinet+" "+border_router_inet);
-        if(border_router_inet.isReachable(1500))
+        if(border_router_inet.isReachable(800))
         {
-         Thread.sleep(1000);
-        if(serverinet.isReachable(1500))
+         //Thread.sleep(1000);
+        if(serverinet.isReachable(800))
         {
        	 
-       	 Thread.sleep(1000);
+       	 //Thread.sleep(1000);
 			 Request request=new Request(Code.PUT);
-		         request.setURI("coap://[aaaa::212:4b00:89ab:cdef]:5683/actuators/relay1?mode=on");
+		         request.setURI("coap://[aaaa::212:4b00:89ab:cdef]:5683/actuators/relay?mode=on");
 		     	 request.send().setConfirmable(false);
 		         Response response;
 	         response = request.waitForResponse();
             
-            System.out.println("YOU REQUESTED FOR PUT Request-1 METHOD");
+            //System.out.println("YOU REQUESTED FOR PUT Request-1 METHOD");
             if(response != null)
 		         {
              System.out.println(response.getPayloadString());

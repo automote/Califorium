@@ -53,7 +53,7 @@ public class GETClient {
 				
 			switch(opt)		
 				{
-				case "1":CoapClient client = new CoapClient(new URI("coap://192.168.0.101:5683/Shankar")); 
+				case "1":CoapClient client = new CoapClient(new URI("coap://192.168.0.102:5683/Shankar")); 
 				String str=null;
 				CoapResponse response = client.get();
 				System.out.println("YOU REQUESTED FOR GET METHOD");

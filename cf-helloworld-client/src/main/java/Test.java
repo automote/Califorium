@@ -12,25 +12,47 @@ import java.sql.*;
 
 public class Test {
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
-		
+		InputStream is = null;
+		int i;
+		char c;
  // URI parameter of the request
 		
-		
-			CoapClient client;
-			try {
-				client = new CoapClient(new URI("coap://192.168.0.100:5683/.well-known/core"));
-			
-        	CoapResponse response=client.get();
-        	System.out.println(response.getResponseText());
-        	
-			} catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try
+		{
+ 				
+					is = new FileInputStream("C:\\status.txt");
+					
+        		    while((i=is.read())!=-1)
+					{
+						
+						c=(char)i;
+            			System.out.print(c);
+						
+					}
+					if((i=is.read())==-1)
+					{
+						PrintWriter out = new PrintWriter("C:\\status.txt");
+						out.print("SANKAR");
+						out.close();
+						//new FileOutputStream("C:\\status.txt").close();
+					}
+					
+				Thread.sleep(500);
+				
 		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+       			if(is!=null)
+			is.close();
+		}	
 		
 	}
+}
 
 
